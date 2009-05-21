@@ -10,5 +10,6 @@
 	Card *cardHolder;
 }
 @property (nonatomic, retain) Card *cardHolder;
+- (CGFloat)calculateRowHeightForString:(NSString *)holderString;
 
 @end

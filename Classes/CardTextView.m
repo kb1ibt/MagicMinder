@@ -60,7 +60,28 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return (indexPath.section == 4) ? 120 : 38;
+	return (indexPath.section == 4) ? [self calculateRowHeightForString:[cardHolder cardText]] : 32;
+}
+- (CGFloat)calculateRowHeightForString:(NSString *)holderString
+{
+	CGFloat		result = 44.0f;
+	CGFloat		width = 0;
+	CGFloat		tableViewWidth;
+	CGRect		bounds = [UIScreen mainScreen].bounds;
+	
+	if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation))
+		tableViewWidth = bounds.size.width;
+	else
+		tableViewWidth = bounds.size.height;
+	
+	width = tableViewWidth - 110;		// fudge factor
+		CGSize		textSize = { width, 20000.0f };		// width and height of text area
+		CGSize		size = [holderString sizeWithFont:[UIFont systemFontOfSize:17.0f] constrainedToSize:textSize lineBreakMode:UILineBreakModeWordWrap];
+		
+		size.height += 20.0f;			// top and bottom margin
+		result = MAX(size.height, 44.0f);	// at least one row
+	
+	return result;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
