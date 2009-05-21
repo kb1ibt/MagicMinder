@@ -60,7 +60,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	return (indexPath.section == 4) ? [self calculateRowHeightForString:[cardHolder cardText]] : 32;
+	return (indexPath.section == 4) ? [self calculateRowHeightForString:[cardHolder cardText]] : 38;
 }
 - (CGFloat)calculateRowHeightForString:(NSString *)holderString
 {
@@ -78,8 +78,8 @@
 		CGSize		textSize = { width, 20000.0f };		// width and height of text area
 		CGSize		size = [holderString sizeWithFont:[UIFont systemFontOfSize:17.0f] constrainedToSize:textSize lineBreakMode:UILineBreakModeWordWrap];
 		
-		size.height += 20.0f;			// top and bottom margin
-		result = MAX(size.height, 44.0f);	// at least one row
+		size.height += 25.0f;			// top and bottom margin
+		result = MAX(size.height, 38.0f);	// at least one row
 	
 	return result;
 }
