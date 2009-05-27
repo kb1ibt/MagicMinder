@@ -104,7 +104,6 @@
 		{
 			cell.textLabel.text = [cardHolder cardText];
 			cell.textLabel.numberOfLines=0;
-//			cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
 			[cell.textLabel sizeToFit];
 			break;
 		}
