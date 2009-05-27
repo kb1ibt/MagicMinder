@@ -16,6 +16,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
 		self.title = @"Set Name";
+		self.hidesBottomBarWhenPushed = YES;
 	}
 	return self;
 }
