@@ -197,7 +197,48 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array/>
+	<array>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
+				<string>293B76960FCDDCF5007594FC</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>Compare HEAD vs. Local — CardTextView.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>293B76970FCDDCF5007594FC</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>Compare HEAD vs. Local — CardTextView.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>293B76B70FCDDF26007594FC</string>
+						<key>history</key>
+						<array>
+							<string>293B76980FCDDCF5007594FC</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1408, 718}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>15 114 1408 759 0 0 1440 878 </string>
+			</dict>
+		</dict>
+	</array>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>1440</integer>
@@ -233,8 +274,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,19 +313,19 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>29A5F4F50E23426D0000A881</string>
 								<string>299E59710E0F731E009427B0</string>
 								<string>29A99CC10E1C8106004454A2</string>
 								<string>297020510E25375F007C3789</string>
 								<string>297020520E25531F007C3789</string>
 								<string>29A99CC20E1C811D004454A2</string>
+								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>40</integer>
+									<integer>36</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -327,7 +366,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SetViewController.h</string>
+								<string>CardTextView.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -335,17 +374,16 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SetViewController.h</string>
+										<string>CardTextView.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>29C86EA90FC5A12C001F7BA7</string>
+										<string>293B76B60FCDDF26007594FC</string>
 										<key>history</key>
 										<array>
 											<string>29629DA10E20779D0067D7E4</string>
 											<string>29A5F3F10E2322CD0000A881</string>
 											<string>29C3639A0E299EA800F2F200</string>
-											<string>29CB2B050E461EF900A80FD2</string>
 											<string>2967FC220EB2D38E0012E654</string>
 											<string>2967FC570EB2D5540012E654</string>
 											<string>29B2328F0F5D07DE0062DDE7</string>
@@ -355,7 +393,6 @@
 											<string>29B232930F5D07DE0062DDE7</string>
 											<string>29B232940F5D07DE0062DDE7</string>
 											<string>29B232D00F5D84100062DDE7</string>
-											<string>2921C27B0F71651B00CBDC87</string>
 											<string>293A16E40F77382C0034ED2E</string>
 											<string>29E050D50F7FF24E00AB5E05</string>
 											<string>29847BF40F8BDC6A00A9E63B</string>
@@ -368,21 +405,23 @@
 											<string>29E424810FB67762007CC774</string>
 											<string>29E424EC0FB6792B007CC774</string>
 											<string>29E425440FB67FBC007CC774</string>
-											<string>29E425460FB67FBC007CC774</string>
 											<string>29AEF9D10FB737A20019021D</string>
 											<string>296D08F30FC20402006EF2E2</string>
-											<string>296D09130FC204F3006EF2E2</string>
-											<string>296D09140FC204F3006EF2E2</string>
 											<string>296D09150FC204F3006EF2E2</string>
 											<string>296D09470FC20A1F006EF2E2</string>
 											<string>296D09480FC20A1F006EF2E2</string>
 											<string>2911CA9D0FC59E290074A867</string>
 											<string>2911CA9E0FC59E290074A867</string>
-											<string>2911CA9F0FC59E290074A867</string>
-											<string>2911CAA00FC59E290074A867</string>
-											<string>2911CAA10FC59E290074A867</string>
-											<string>29C86EA70FC5A12C001F7BA7</string>
-											<string>29E423BF0FB67148007CC774</string>
+											<string>29EC9EFF0FC5AACE00B5D671</string>
+											<string>29EC9F000FC5AACE00B5D671</string>
+											<string>297C5D030FC5EDB1004DBEF7</string>
+											<string>297C5D220FC5EE8F004DBEF7</string>
+											<string>297C5D240FC5EE8F004DBEF7</string>
+											<string>297C5D250FC5EE8F004DBEF7</string>
+											<string>297C5D260FC5EE8F004DBEF7</string>
+											<string>29D331680FC6D50B00ED275A</string>
+											<string>293B76900FCDDCF5007594FC</string>
+											<string>293B76B50FCDDF26007594FC</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -426,7 +465,7 @@
 											<string>29CBEC530F7D725F00ECF981</string>
 											<string>29CBEC540F7D725F00ECF981</string>
 											<string>29CBEC600F7D73F100ECF981</string>
-											<string>29C86EA80FC5A12C001F7BA7</string>
+											<string>293B76920FCDDCF5007594FC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -448,6 +487,8 @@
 							<string>555pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -484,9 +525,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>29C86EAA0FC5A12C001F7BA7</string>
+				<string>293B76940FCDDCF5007594FC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>29C86EAB0FC5A12C001F7BA7</string>
+				<string>293B76950FCDDCF5007594FC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -637,7 +678,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>29AA8DFD0DEDFE0C0081139D</string>
+		<string>293B76960FCDDCF5007594FC</string>
 		<string>/Users/shawn/Desktop/iPhone_Dev/Magic Minder/Magic Minder.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -718,7 +762,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>29AA8DFD0DEDFE0C0081139D</string>
-				<string>2916DD040FC20C1400516EB2</string>
+				<string>293B769B0FCDDCF5007594FC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -838,13 +882,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>29C86EAC0FC5A12C001F7BA7</string>
+				<string>293B769C0FCDDCF5007594FC</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>29C86EAD0FC5A12C001F7BA7</string>
-				<string>29C86EAE0FC5A12C001F7BA7</string>
-				<string>29C86EAF0FC5A12C001F7BA7</string>
-				<string>29C86EB00FC5A12C001F7BA7</string>
-				<string>29C86EB10FC5A12C001F7BA7</string>
+				<string>293B769D0FCDDCF5007594FC</string>
+				<string>293B769E0FCDDCF5007594FC</string>
+				<string>293B769F0FCDDCF5007594FC</string>
+				<string>293B76A00FCDDCF5007594FC</string>
+				<string>293B76A10FCDDCF5007594FC</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -998,7 +1042,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>2916DD0B0FC20C1400516EB2</string>
+				<string>293B76A20FCDDCF5007594FC</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
@@ -1111,7 +1155,7 @@
 								<key>PBXProjectModuleLabel</key>
 								<string>SCM Results</string>
 								<key>SCMActivityViewerShowingDefaultKey</key>
-								<string>{{0, 355}, {1166, 216}}</string>
+								<string>{{0, 392}, {1166, 179}}</string>
 							</dict>
 							<key>GeometryConfiguration</key>
 							<dict>
@@ -1141,7 +1185,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>296EC3050DDBE0A5008FC203</string>
-				<string>29F890230E57726500179084</string>
+				<string>29EC9EFE0FC5A55100B5D671</string>
 				<string>1C78EAB2065D492600B07095</string>
 				<string>1CD052920623707200166675</string>
 			</array>
@@ -1200,7 +1244,6 @@
 									<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 									<array>
 										<array>
-											<integer>1</integer>
 											<integer>0</integer>
 										</array>
 									</array>
@@ -1230,6 +1273,8 @@
 							<string>185pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1269,8 +1314,8 @@
 			<true/>
 			<key>TableOfContents</key>
 			<array>
-				<string>29E424340FB67362007CC774</string>
-				<string>29E424350FB67362007CC774</string>
+				<string>29EB6B520FC5FE710026264C</string>
+				<string>29EB6B530FC5FE710026264C</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
 				<string>1CA1AED706398EBD00589147</string>
 			</array>
@@ -1279,7 +1324,7 @@
 			<key>WindowString</key>
 			<string>21 446 744 409 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
-			<string>29E424340FB67362007CC774</string>
+			<string>29EB6B520FC5FE710026264C</string>
 			<key>WindowToolIsVisible</key>
 			<false/>
 		</dict>
