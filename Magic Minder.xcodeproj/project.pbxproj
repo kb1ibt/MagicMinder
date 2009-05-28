@@ -18,6 +18,7 @@
 		291087C60DFB096A0000AFB7 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 291087C50DFB096A0000AFB7 /* Card.m */; };
 		291087F20DFB0ACB0000AFB7 /* Set.m in Sources */ = {isa = PBXBuildFile; fileRef = 291087F10DFB0ACB0000AFB7 /* Set.m */; };
 		2921C26E0F7150DC00CBDC87 /* CardTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2921C26D0F7150DC00CBDC87 /* CardTextCell.m */; };
+		293B76FF0FCE132C007594FC /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 293B76FE0FCE132C007594FC /* dictionary.db */; };
 		2942C1DC0E8EA63000F23D2B /* exp_sym_ALA_C.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2942C1D80E8EA63000F23D2B /* exp_sym_ALA_C.gif */; };
 		2942C1DD0E8EA63000F23D2B /* exp_sym_ALA_M.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2942C1D90E8EA63000F23D2B /* exp_sym_ALA_M.gif */; };
 		2942C1DE0E8EA63000F23D2B /* exp_sym_ALA_R.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2942C1DA0E8EA63000F23D2B /* exp_sym_ALA_R.gif */; };
@@ -282,7 +283,6 @@
 		29CB2BE50E46400900A80FD2 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 29CB2BE40E46400900A80FD2 /* minus.png */; };
 		29DDC6A70E3C29C7003073D3 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DDC6A50E3C29C7003073D3 /* CardViewController.m */; };
 		29F269200E2928A7009C822F /* CardInventoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F2691F0E2928A7009C822F /* CardInventoryView.m */; };
-		29F4E30C0FB21278006635B6 /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 29F4E30B0FB21278006635B6 /* dictionary.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -300,6 +300,7 @@
 		291087F10DFB0ACB0000AFB7 /* Set.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Set.m; sourceTree = "<group>"; };
 		2921C26C0F7150DC00CBDC87 /* CardTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTextCell.h; sourceTree = "<group>"; };
 		2921C26D0F7150DC00CBDC87 /* CardTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTextCell.m; sourceTree = "<group>"; };
+		293B76FE0FCE132C007594FC /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		2942C1D80E8EA63000F23D2B /* exp_sym_ALA_C.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = exp_sym_ALA_C.gif; sourceTree = "<group>"; };
 		2942C1D90E8EA63000F23D2B /* exp_sym_ALA_M.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = exp_sym_ALA_M.gif; sourceTree = "<group>"; };
 		2942C1DA0E8EA63000F23D2B /* exp_sym_ALA_R.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = exp_sym_ALA_R.gif; sourceTree = "<group>"; };
@@ -573,7 +574,6 @@
 		29DDC6A60E3C29C7003073D3 /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
 		29F2691E0E2928A7009C822F /* CardInventoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardInventoryView.h; sourceTree = "<group>"; };
 		29F2691F0E2928A7009C822F /* CardInventoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardInventoryView.m; sourceTree = "<group>"; };
-		29F4E30B0FB21278006635B6 /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Magic_Minder_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Magic_Minder_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -964,7 +964,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				29F4E30B0FB21278006635B6 /* dictionary.db */,
+				293B76FE0FCE132C007594FC /* dictionary.db */,
 				29B232760F5CEE780062DDE7 /* dist.plist */,
 				29CB2BE40E46400900A80FD2 /* minus.png */,
 				297AF4E00E14946D00A664E3 /* inventory.db */,
@@ -1289,7 +1289,7 @@
 				29B232840F5CFC220062DDE7 /* exp_sym_CFX_M.gif in Resources */,
 				29B232850F5CFC220062DDE7 /* exp_sym_CFX_R.gif in Resources */,
 				29B232860F5CFC220062DDE7 /* exp_sym_CFX_U.gif in Resources */,
-				29F4E30C0FB21278006635B6 /* dictionary.db in Resources */,
+				293B76FF0FCE132C007594FC /* dictionary.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
