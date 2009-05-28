@@ -19,25 +19,30 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
 	return [displayList count];
 }
 
+- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+	NSMutableArray *array = [[NSMutableArray alloc] init];
+	array = [[displayList objectAtIndex:section] sets];
+	return [array count];
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[displayList objectAtIndex:section] blockName];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Sets"];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"Sets"] autorelease];
     }
-    cell.textLabel.text = [[displayList objectAtIndex:indexPath.row] setName];
+    cell.textLabel.text = [[[[displayList objectAtIndex:indexPath.section] sets] objectAtIndex:indexPath.row] setName];
     return cell;
 	
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Set *tempSet = [Set setNamed:[[displayList objectAtIndex:indexPath.row] setName]];
+	Set *tempSet = [[[displayList objectAtIndex:indexPath.section] sets] objectAtIndex:indexPath.row];
 	[tempSet hydrate];
 	CardTableController *cardController = [[CardTableController alloc] init];
 	cardController.holderOfSet = tempSet;
@@ -59,7 +64,7 @@
 	return YES;
 }
 - (void)setUpDisplayList {
-	self.displayList = [Set setNameList];
+	self.displayList = [blocks allValues];
 }
 
 - (void)didReceiveMemoryWarning {

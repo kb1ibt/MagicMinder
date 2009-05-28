@@ -11,11 +11,8 @@ static sqlite3_stmt *initSetStatement = nil;
 
 @implementation Set
 @synthesize cards, setName, setInitial;
-+ (void)initialize {
-	sets = [[NSMutableDictionary alloc] init];	
-}
-+ (Set *)setNamed:(NSString *)name {
-	return [sets objectForKey:name];
+/*+ (Set *)setNamed:(NSString *)name {
+	return [blocks objectForKey:name];
 }
 + (NSArray *)setNameList{
 	NSSortDescriptor *pkDescript = [[NSSortDescriptor alloc] initWithKey:@"primaryKey" ascending:YES selector:@selector(compare:)];
@@ -33,7 +30,7 @@ static sqlite3_stmt *initSetStatement = nil;
 	[array release];
 	[sets setObject:newSet forKey:setName];
 	return newSet;
-}
+}*/
 + (void)finalizeStatements {
     if (initSetStatement) sqlite3_finalize(initSetStatement);
 }
@@ -41,7 +38,7 @@ static sqlite3_stmt *initSetStatement = nil;
     if (self = [super init]) {
         primaryKey = pk;
         if (initSetStatement == nil) {
-            const char *sql = "SELECT name,initials FROM sets WHERE id=?";
+            const char *sql = "SELECT name,initials,released,blockItem FROM sets WHERE id=?";
             if (sqlite3_prepare_v2(dictionary, sql, -1, &initSetStatement, NULL) != SQLITE_OK) {
                 NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(dictionary));
             }
@@ -50,21 +47,26 @@ static sqlite3_stmt *initSetStatement = nil;
         if (sqlite3_step(initSetStatement) == SQLITE_ROW) {
             self.setName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(initSetStatement, 0)];
             self.setInitial = [NSString stringWithUTF8String:(char *)sqlite3_column_text(initSetStatement, 1)];
+			if(sqlite3_column_int(initSetStatement,2) == 1){released = TRUE;}else{released = FALSE;}
+			blockOrder = sqlite3_column_int(initSetStatement,3);
         } else {
             self.setName = @"No title";
 			self.setInitial = @"C";
+			released=FALSE;
         }
         // Reset the statement for future reuse.
         sqlite3_reset(initSetStatement);
 		NSMutableArray *array = [[NSMutableArray alloc] init];
 		self.cards = array;
 		[array release];
-		[sets setObject:self forKey:self.setName];
     }
     return self;
 }
 - (NSInteger)primaryKey {
     return primaryKey;
+}
+- (NSInteger)blockOrder {
+    return blockOrder;
 }
 - (void)dealloc {
 	[self dehydrate];
