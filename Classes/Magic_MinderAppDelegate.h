@@ -8,7 +8,7 @@
 extern UIImage *setRarityImage;
 extern sqlite3 *dictionary;
 extern sqlite3 *inventory;
-extern NSMutableDictionary *sets;
+extern NSMutableDictionary *blocks;
 
 @class Card, SetViewController, Set, Inventory;
 

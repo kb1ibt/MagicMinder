@@ -6,12 +6,13 @@
 #import "Card.h"
 #import "SetViewController.h"
 #import "Set.h"
+#import "Cycle.h"
 #import "Inventory.h"
 
 UIImage *setRarityImage;
 sqlite3 *dictionary;
 sqlite3 *inventory;
-NSMutableDictionary *sets;
+NSMutableDictionary *blocks;
 
 @interface Magic_MinderAppDelegate (Private)
 - (void)createEditableCopyOfDatabaseIfNeeded;
@@ -82,13 +83,14 @@ NSMutableDictionary *sets;
     NSString *inventoryPath = [documentsDirectory stringByAppendingPathComponent:@"inventory.db"];
     if (sqlite3_open([dictionaryPath UTF8String], &dictionary) == SQLITE_OK) {
         sqlite3_stmt *statement;
-		const char *sql = "SELECT id, name, initials FROM sets";
+		const char *sqlBlock = "SELECT id FROM block";
 		if (sqlite3_open([inventoryPath UTF8String], &inventory) == SQLITE_OK) {
-			if (sqlite3_prepare_v2(dictionary, sql, -1, &statement, NULL) == SQLITE_OK) {
+			if (sqlite3_prepare_v2(dictionary, sqlBlock, -1, &statement, NULL) == SQLITE_OK) {
 				while (sqlite3_step(statement) == SQLITE_ROW) {
 					int primaryKey = sqlite3_column_int(statement, 0);
-					Set *indivSet = [[Set alloc] initWithPrimaryKey:primaryKey];
-					[indivSet release];
+					Cycle *indivBlock = [[Cycle alloc] initWithPrimaryKey:primaryKey];
+					[blocks setObject:indivBlock forKey:indivBlock.blockName];
+					[indivBlock release];
 				}
 			}
 			sqlite3_finalize(statement);
@@ -100,13 +102,14 @@ NSMutableDictionary *sets;
 }
 
 -(void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-	[[sets allValues] makeObjectsPerformSelector:@selector(dehydrate)];
+	[[blocks allValues] makeObjectsPerformSelector:@selector(dehydrate)];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[sets allValues] makeObjectsPerformSelector:@selector(dealloc)];
+    [[blocks allValues] makeObjectsPerformSelector:@selector(dealloc)];
     [Card finalizeStatements];
     [Set finalizeStatements];
+	[Cycle finalizeStatements];
     if (sqlite3_close(dictionary) != SQLITE_OK) {
         NSAssert1(0, @"Error: failed to close database with message '%s'.", sqlite3_errmsg(dictionary));
     }
