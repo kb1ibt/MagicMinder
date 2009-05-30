@@ -12,7 +12,7 @@
 UIImage *setRarityImage;
 sqlite3 *dictionary;
 sqlite3 *inventory;
-NSMutableDictionary *blocks;
+NSMutableArray *blocks;
 
 @interface Magic_MinderAppDelegate (Private)
 - (void)createEditableCopyOfDatabaseIfNeeded;
@@ -81,15 +81,16 @@ NSMutableDictionary *blocks;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *inventoryPath = [documentsDirectory stringByAppendingPathComponent:@"inventory.db"];
+	blocks = [[NSMutableArray alloc] init];	
     if (sqlite3_open([dictionaryPath UTF8String], &dictionary) == SQLITE_OK) {
         sqlite3_stmt *statement;
-		const char *sqlBlock = "SELECT id FROM block";
+		const char *sqlBlock = "SELECT id FROM block ORDER BY id";
 		if (sqlite3_open([inventoryPath UTF8String], &inventory) == SQLITE_OK) {
 			if (sqlite3_prepare_v2(dictionary, sqlBlock, -1, &statement, NULL) == SQLITE_OK) {
 				while (sqlite3_step(statement) == SQLITE_ROW) {
 					int primaryKey = sqlite3_column_int(statement, 0);
 					Cycle *indivBlock = [[Cycle alloc] initWithPrimaryKey:primaryKey];
-					[blocks setObject:indivBlock forKey:indivBlock.blockName];
+					[blocks addObject:indivBlock];
 					[indivBlock release];
 				}
 			}
@@ -102,11 +103,11 @@ NSMutableDictionary *blocks;
 }
 
 -(void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-	[[blocks allValues] makeObjectsPerformSelector:@selector(dehydrate)];
+	[blocks makeObjectsPerformSelector:@selector(dehydrate)];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[blocks allValues] makeObjectsPerformSelector:@selector(dealloc)];
+    [blocks makeObjectsPerformSelector:@selector(dealloc)];
     [Card finalizeStatements];
     [Set finalizeStatements];
 	[Cycle finalizeStatements];
