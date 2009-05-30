@@ -15,9 +15,6 @@ static sqlite3_stmt *initBlockStatement = nil;
 
 @implementation Cycle
 @synthesize primaryKey,blockName,sets;
-+ (void)initialize {
-	blocks = [[NSMutableDictionary alloc] init];	
-}
 
 - (id)initWithPrimaryKey:(NSInteger)pk{
     if (self = [super init]) {
@@ -49,6 +46,11 @@ static sqlite3_stmt *initBlockStatement = nil;
 -(void)dehydrate {
 	[sets makeObjectsPerformSelector:@selector(dehydrate)];
 	hydrated = NO;
+}
+- (void)dealloc {
+	[sets makeObjectsPerformSelector:@selector(dealloc)];	
+	[blockName release];
+    [super dealloc];
 }
 -(void)hydrate{
 	if(!hydrated){
