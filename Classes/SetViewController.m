@@ -64,7 +64,7 @@
 	return YES;
 }
 - (void)setUpDisplayList {
-	self.displayList = [blocks allValues];
+	self.displayList = blocks;
 }
 
 - (void)didReceiveMemoryWarning {
