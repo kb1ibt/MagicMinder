@@ -68,6 +68,9 @@ static sqlite3_stmt *initSetStatement = nil;
 - (NSInteger)blockOrder {
     return blockOrder;
 }
+- (NSInteger)released {
+    return released;
+}
 - (void)dealloc {
 	[self dehydrate];
 	[cards makeObjectsPerformSelector:@selector(dealloc)];	
