@@ -28,4 +28,5 @@
 + (void)finalizeStatements;
 - (void)hydrate;
 - (void)dehydrate;
+- (BOOL)hasBeenReleased;
 @end

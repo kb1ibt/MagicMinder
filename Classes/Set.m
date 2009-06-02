@@ -68,8 +68,12 @@ static sqlite3_stmt *initSetStatement = nil;
 - (NSInteger)blockOrder {
     return blockOrder;
 }
-- (NSInteger)released {
-    return released;
+- (BOOL)hasBeenReleased {
+	if(released){
+		return TRUE;
+	}else{
+		return FALSE;
+	}
 }
 - (void)dealloc {
 	[self dehydrate];
