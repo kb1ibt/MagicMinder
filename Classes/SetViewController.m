@@ -5,6 +5,7 @@
 #import "CardTableController.h"
 #import "SetViewController.h"
 #import "Set.h"
+#import "Cycle.h"
 #import "Magic_MinderAppDelegate.h"
 
 @implementation SetViewController
@@ -43,11 +44,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Set *tempSet = [[[displayList objectAtIndex:indexPath.section] sets] objectAtIndex:indexPath.row];
+	if([tempSet hasBeenReleased]){
 	[tempSet hydrate];
 	CardTableController *cardController = [[CardTableController alloc] init];
 	cardController.holderOfSet = tempSet;
 	[[self navigationController] pushViewController:cardController animated:YES];
 	[cardController release];
+	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
