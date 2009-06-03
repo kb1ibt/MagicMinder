@@ -8,13 +8,17 @@
 
 @interface CardInventoryView : UIViewController{
 	Card *cardHolder;
-	UILabel *labelTotalCards;
-	UITextField *labelNormalCards;
-	UITextField *labelFoilCards;
+	IBOutlet UILabel *labelTotalCards;
+	IBOutlet UITextField *labelNormalCards;
+	IBOutlet UITextField *labelFoilCards;
 }
 @property (nonatomic, retain) Card *cardHolder;
 @property (nonatomic, retain) UILabel *labelTotalCards;
 @property (nonatomic, retain) UITextField *labelNormalCards;
 @property (nonatomic, retain) UITextField *labelFoilCards;
+-(IBAction)incrementNormal;
+-(IBAction)incrementFoil;
+-(IBAction)decrementNormal;
+-(IBAction)decrementFoil;
 
 @end
