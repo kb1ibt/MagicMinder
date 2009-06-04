@@ -20,6 +20,9 @@
 @property (nonatomic,retain) CardTextView *cardTextPage;
 @property (nonatomic,retain) CardInventoryView *cardInventoryPage;
 
-- (void)switchView;
+- (IBAction)segmentAction:(id)sender;
+- (void)loadInventoryView;
+- (void)loadtextView;
+- (void)loadSegmentController;
 
 @end
