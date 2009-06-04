@@ -6,9 +6,6 @@
 @class Set;
 
 @interface SetViewController : UITableViewController {
-	NSArray *displayList;
 }
-@property (nonatomic, retain) NSArray *displayList;
-- (void)setUpDisplayList;
 
 @end
