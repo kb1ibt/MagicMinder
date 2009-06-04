@@ -8,8 +8,9 @@
 @implementation CardTextView
 @synthesize cardHolder;
 
-- (id)initWithStyle:(UITableViewStyle)style {
-	if (self = [super initWithStyle:style]) {
+- (id)init{
+	if (self = [super init]) {
+		self.view.frame = CGRectMake(0, 0, 320, 480);
 	}
 	return self;
 }
