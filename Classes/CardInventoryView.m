@@ -14,9 +14,7 @@
 	}
 	return self;
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
+
 - (void)viewWillAppear:(BOOL)animated
 {	
 	labelFoilCards.text = [[NSString alloc] initWithFormat:@"%i", [cardHolder.inventory foilCards]];
