@@ -10,6 +10,4 @@
 }
 @property (nonatomic, retain) Set *holderOfSet;
 
-- (Card *)cardForIndexPath:(NSIndexPath *)indexPath;
-
 @end

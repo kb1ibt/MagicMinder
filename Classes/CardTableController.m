@@ -21,10 +21,6 @@
 	return self;
 }
 
-- (Card *)cardForIndexPath:(NSIndexPath *)indexPath {
-	return [[holderOfSet cards] objectAtIndex:indexPath.row];
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;
 }
@@ -38,7 +34,7 @@
 	if (cell == nil) {
 		cell = [[[CardSpecialCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"CardSpecialCell"] autorelease];
 	}
-	cell.cardHolder = [self cardForIndexPath:indexPath];
+	cell.cardHolder = [[holderOfSet cards] objectAtIndex:indexPath.row];
 	return cell;
 }
 
@@ -48,7 +44,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Card *tempCard = [self cardForIndexPath:indexPath];
+	Card *tempCard = [[holderOfSet cards] objectAtIndex:indexPath.row];
 	CardViewController *cardController = [[CardViewController alloc] init];
 	cardController.cardHolder = tempCard;
 	[[self navigationController] pushViewController:cardController animated:YES];
