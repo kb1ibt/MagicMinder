@@ -11,7 +11,7 @@
 
 
 @implementation CardViewController
-@synthesize cardHolder, frontViewIsVisible;
+@synthesize cardHolder;
 @synthesize cardTextPage;
 @synthesize cardInventoryPage;
 
@@ -20,7 +20,6 @@
 		cardHolder = nil;
 		cardTextPage = nil;
 		cardInventoryPage = nil;
-		frontViewIsVisible = NO;
 		self.hidesBottomBarWhenPushed = YES;
 	}
 	return self;

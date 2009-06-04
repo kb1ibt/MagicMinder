@@ -9,13 +9,9 @@
 
 @interface CardViewController : UIViewController {
 	Card *cardHolder;
-	UIButton	*flipperButton;
-	BOOL frontViewIsVisible;
-	
 	CardTextView *cardTextPage;
 	CardInventoryView *cardInventoryPage;
 }
-@property (assign) BOOL frontViewIsVisible;
 @property (nonatomic, retain) Card *cardHolder;
 @property (nonatomic,retain) CardTextView *cardTextPage;
 @property (nonatomic,retain) CardInventoryView *cardInventoryPage;
