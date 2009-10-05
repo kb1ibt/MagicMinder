@@ -40,6 +40,7 @@ static sqlite3_stmt *hydrateCardStatement = nil;
         sqlite3_reset(initCardStatement);
         dirty = NO;
     }
+	[self hydrate];
     return self;
 }
 
