@@ -28,7 +28,7 @@
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	NSString *title;
+	NSString *title = @"";
 	switch (section)
 	{
 		case 0:

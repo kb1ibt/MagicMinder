@@ -44,14 +44,10 @@
 	segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 	segmentedControl.frame = CGRectMake(0, 0, 400, 30);
 	[segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-	
-//	defaultTintColor = [segmentedControl.tintColor retain];	// keep track of this for later
-    
 	self.navigationItem.titleView = segmentedControl;
 	[segmentedControl release];
 }
 - (void)viewDidLoad {
-	[cardHolder hydrate];
 	[self loadSegmentController];
 	self.navigationItem.prompt = cardHolder.cardName;
 	[self loadInventoryView];

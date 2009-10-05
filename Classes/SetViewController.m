@@ -23,8 +23,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
-	NSMutableArray *array = [[NSMutableArray alloc] init];
-	array = [[blocks objectAtIndex:section] sets];
+	NSMutableArray *array = [[blocks objectAtIndex:section] sets];
+//	array = ;
 	return [array count];
 }
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -44,7 +44,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Set *tempSet = [[[blocks objectAtIndex:indexPath.section] sets] objectAtIndex:indexPath.row];
 	if([tempSet hasBeenReleased]){
-	[tempSet hydrate];
 	CardTableController *cardController = [[CardTableController alloc] init];
 	cardController.holderOfSet = tempSet;
 	[[self navigationController] pushViewController:cardController animated:YES];
