@@ -3,7 +3,6 @@
 //  Magic Minder
 //
 //  Created by Shawn Stricker on 5/14/08.
-//  Copyright Apple Inc. - Rockingham Park 2008. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
