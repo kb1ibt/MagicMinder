@@ -87,20 +87,34 @@ static sqlite3_stmt *initSetStatement = nil;
 	[cards makeObjectsPerformSelector:@selector(dehydrate)];
 	[cards release];
 	NSMutableArray *array = [[NSMutableArray alloc] init];
-	self.cards = array;
+	cards = array;
 	hydrated = NO;
 }
 -(void)hydrate{
 	if(!hydrated){
-		sqlite3_stmt *statement = nil;
+		sqlite3_stmt *statement,*statementCount;
 		const char *sql = "SELECT id FROM cardInfo WHERE setID=? ORDER BY cardNumber";
 		if (sqlite3_prepare_v2(dictionary, sql, -1, &statement, NULL) != SQLITE_OK) {
 			NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(dictionary));
 		}
 		sqlite3_bind_int(statement, 1, primaryKey);
+		const char *sqlCount = "SELECT COUNT(*) FROM cardInfo WHERE setID=?";
+		sqlite3_prepare_v2(dictionary, sqlCount, -1, &statementCount, NULL);
+		sqlite3_bind_int(statementCount, 1, primaryKey);
+		sqlite3_step(statementCount);
+		int cardCount = sqlite3_column_int(statementCount, 0);
+		CGFloat cardI = 0;
+		NSDictionary *tempDict,*tempDict2;
+		Magic_MinderAppDelegate *delagate = [(Magic_MinderAppDelegate *)[UIApplication sharedApplication] delegate];
 		while (sqlite3_step(statement) == SQLITE_ROW) {
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			int cardID = sqlite3_column_int(statement, 0);
 			Card *indivCard = [[Card alloc] initWithPrimaryKey:cardID];
+			tempDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"textCard",@"Type",[indivCard cardName],@"Value",nil];
+			[delagate performSelectorOnMainThread:@selector(progressUpdate:) withObject:tempDict waitUntilDone:NO];
+			NSNumber *tempPercent = [[NSNumber alloc] initWithFloat:(cardI++/cardCount)];
+			tempDict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"progressCard",@"Type",tempPercent,@"Value",nil];
+			[delagate performSelectorOnMainThread:@selector(progressUpdate:) withObject:tempDict2 waitUntilDone:NO];
 			NSString *string = NULL;
 			if([setInitial isEqualToString:@"TSB"]){
 				string = [[NSString alloc] initWithFormat:@"exp_sym_TSB_P.gif"];
@@ -120,8 +134,13 @@ static sqlite3_stmt *initSetStatement = nil;
 			[string release];
 			[cards addObject:indivCard];
 			[indivCard release];
+			[tempDict release];
+			[tempDict2 release];
+			[tempPercent release];			
+			[pool release];
 		}
 		sqlite3_finalize(statement);
+		sqlite3_finalize(statementCount);
 		hydrated = YES;
 	}
 }

@@ -37,7 +37,6 @@ static sqlite3_stmt *initBlockStatement = nil;
 		self.sets = array;
 		[array release];
     }
-	[self hydrate];
     return self;
 }
 + (void)finalizeStatements {
@@ -54,23 +53,40 @@ static sqlite3_stmt *initBlockStatement = nil;
 }
 -(void)hydrate{
 	if(!hydrated){
-		sqlite3_stmt *statement = nil;
+		sqlite3_stmt *statement,*statementCount;
 		const char *sql = "SELECT id, blockItem FROM sets WHERE block=? ORDER BY blockItem";
 		if (sqlite3_prepare_v2(dictionary, sql, -1, &statement, NULL) != SQLITE_OK) {
 			NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(dictionary));
 		}
+		const char *sqlCount = "SELECT COUNT(*) FROM sets WHERE block=?";
+		sqlite3_prepare_v2(dictionary, sqlCount, -1, &statementCount, NULL);
+		sqlite3_bind_int(statementCount, 1, primaryKey);
+		sqlite3_step(statementCount);
+		int setCount = sqlite3_column_int(statementCount, 0);
+		CGFloat setI = 0;
+		NSDictionary *tempDict,*tempDict2;
 		sqlite3_bind_int(statement, 1, primaryKey);
+		Magic_MinderAppDelegate *delagate = [(Magic_MinderAppDelegate *)[UIApplication sharedApplication] delegate];
 		while (sqlite3_step(statement) == SQLITE_ROW) {
+			NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 			int setID = sqlite3_column_int(statement, 0);
 			Set *indivSet = [[Set alloc] initWithPrimaryKey:setID];
-
+			tempDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"textSet",@"Type",[indivSet setName],@"Value",nil];
+			[delagate performSelectorOnMainThread:@selector(progressUpdate:) withObject:tempDict waitUntilDone:NO];
+			NSNumber *tempPercent = [[NSNumber alloc] initWithFloat:(setI++/setCount)];
+			tempDict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"progressSet",@"Type",tempPercent,@"Value",nil];
+			[delagate performSelectorOnMainThread:@selector(progressUpdate:) withObject:tempDict2 waitUntilDone:NO];
+			[indivSet hydrate];
 			[sets addObject:indivSet];
 			[indivSet release];
+			[tempDict release];
+			[tempDict2 release];
+			[tempPercent release];
+			[pool release];
 		}
 		sqlite3_finalize(statement);
+		sqlite3_finalize(statementCount);
 		hydrated = YES;
 	}
 }
-
-const char *sqlSet = "SELECT id, blockItem FROM sets WHERE block=?";
 @end

@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 
-
 @interface Cycle : NSObject {
     NSInteger primaryKey;
 	NSString *blockName;
