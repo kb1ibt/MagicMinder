@@ -19,7 +19,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//	[Magic_MinderAppDelegate initializeDatabase];
 
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

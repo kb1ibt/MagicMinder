@@ -32,7 +32,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CardSpecialCell *cell = (CardSpecialCell *)[tableView dequeueReusableCellWithIdentifier:@"CardSpecialCell"];
 	if (cell == nil) {
-		cell = [[[CardSpecialCell alloc] initWithFrame:CGRectZero reuseIdentifier:@"CardSpecialCell"] autorelease];
+		cell = [[[CardSpecialCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CardSpecialCell"] autorelease];
 	}
 	cell.cardHolder = [[holderOfSet cards] objectAtIndex:indexPath.row];
 	return cell;
