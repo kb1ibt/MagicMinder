@@ -66,7 +66,6 @@ NSMutableArray *blocks;
 }
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	setRarityImage = [[UIImage imageNamed:@"exp_sym_SHM_R.gif"] retain];
-	[self createEditableCopyOfDatabaseIfNeeded];
 	[self displayProgess];
 	[NSThread detachNewThreadSelector:@selector(initializeDatabase) toTarget:self withObject:nil];
 }
@@ -95,6 +94,7 @@ NSMutableArray *blocks;
 }
 
 - (void)initializeDatabase {
+	[self createEditableCopyOfDatabaseIfNeeded];
     NSString *dictionaryPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"dictionary.db"];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
