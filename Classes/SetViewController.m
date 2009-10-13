@@ -43,12 +43,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Set *tempSet = [[[blocks objectAtIndex:indexPath.section] sets] objectAtIndex:indexPath.row];
-	if([tempSet hasBeenReleased]){
+	[tempSet hydrate];
 	CardTableController *cardController = [[CardTableController alloc] init];
 	cardController.holderOfSet = tempSet;
 	[[self navigationController] pushViewController:cardController animated:YES];
 	[cardController release];
-	}
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

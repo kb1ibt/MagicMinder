@@ -76,7 +76,6 @@ static sqlite3_stmt *initBlockStatement = nil;
 			NSNumber *tempPercent = [[NSNumber alloc] initWithFloat:(setI++/setCount)];
 			tempDict2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"progressSet",@"Type",tempPercent,@"Value",nil];
 			[delagate performSelectorOnMainThread:@selector(progressUpdate:) withObject:tempDict2 waitUntilDone:NO];
-			[indivSet hydrate];
 			[sets addObject:indivSet];
 			[indivSet release];
 			[tempDict release];

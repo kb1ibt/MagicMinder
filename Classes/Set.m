@@ -11,26 +11,7 @@ static sqlite3_stmt *initSetStatement = nil;
 
 @implementation Set
 @synthesize cards, setName, setInitial;
-/*+ (Set *)setNamed:(NSString *)name {
-	return [blocks objectForKey:name];
-}
-+ (NSArray *)setNameList{
-	NSSortDescriptor *pkDescript = [[NSSortDescriptor alloc] initWithKey:@"primaryKey" ascending:YES selector:@selector(compare:)];
-	NSArray *tempArray = [sets allValues];
-	NSArray *sortedArray;
-	sortedArray = [tempArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:pkDescript]];
-	[pkDescript release];
-	return sortedArray;
-}
-+ (Set *)newSetWithName:(NSString *)setName {
-	Set *newSet = [[Set alloc] init];
-	newSet.setName = setName;
-	NSMutableArray *array = [[NSMutableArray alloc] init];
-	newSet.cards = array;
-	[array release];
-	[sets setObject:newSet forKey:setName];
-	return newSet;
-}*/
+
 + (void)finalizeStatements {
     if (initSetStatement) sqlite3_finalize(initSetStatement);
 }
