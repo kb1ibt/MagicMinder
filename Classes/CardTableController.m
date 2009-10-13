@@ -45,6 +45,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Card *tempCard = [[holderOfSet cards] objectAtIndex:indexPath.row];
+	[tempCard hydrate];
 	CardViewController *cardController = [[CardViewController alloc] init];
 	cardController.cardHolder = tempCard;
 	[[self navigationController] pushViewController:cardController animated:YES];

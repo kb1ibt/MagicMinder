@@ -21,7 +21,7 @@ static sqlite3_stmt *hydrateCardStatement = nil;
     if (self = [super init]) {
         cardID = pk;
         if (initCardStatement == nil) {
-            const char *sql = "SELECT c.cardName,c.cardNumber,c.rarity FROM cardInfo AS c WHERE c.id=?";
+            const char *sql = "SELECT cardName,cardNumber,rarity FROM cardInfo WHERE id=?";
             if (sqlite3_prepare_v2(dictionary, sql, -1, &initCardStatement, NULL) != SQLITE_OK) {
                 NSAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(dictionary));
             }
@@ -40,7 +40,6 @@ static sqlite3_stmt *hydrateCardStatement = nil;
         sqlite3_reset(initCardStatement);
         dirty = NO;
     }
-	[self hydrate];
     return self;
 }
 
